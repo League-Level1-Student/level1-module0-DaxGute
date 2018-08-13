@@ -18,7 +18,7 @@ public class BodyPartQuiz {
 	// 0. You can use the celebrity photos we have placed in the default java package,  
 	// or if you prefer, get celebrity photos from the Internet, place them in the default
 	// package, and change the names below.
-	
+    String a [] = {"arnold", "leonardo", "morgan", "jack"}; 
 	String firstImage = "src/arnold.jpeg";
 	String secondImage = "src/leonardo.jpeg";
 	String thirdImage = "src/morgan.jpeg";
@@ -37,20 +37,27 @@ public class BodyPartQuiz {
 		for (int i = 0; i < 4; i++) {
 			
 			// 4. Ask the user who this person is and store their answer
-			String guess= JOptionPane.showInputDialog("who is this?");
+			String guess = JOptionPane.showInputDialog("Who is this?");
 			
 			// 5. Check their answer. If they guessed correctly:
 			// -- Tell them they are right and increase the score by 1
-			if (guess == )
+			if (guess.equalsIgnoreCase(a[i])){
+				JOptionPane.showMessageDialog(null, "correct");
+				score++;
+			}else {
+				JOptionPane.showMessageDialog(null, "incorrect his name is " + a[i]);
+			}
 			// 6. Otherwise:
 			// -- Tell them they are wrong and who the person is
 
 			// 7. Use the showNextImage() method below to get the next image
 			showNextImage();
 		    // 8. Show them their current score
-			
+			JOptionPane.showMessageDialog(null, "your score is " + score);
 			// 9. .... repeat for all your images.....
 
+			
+		
 
 		}
 
@@ -58,6 +65,7 @@ public class BodyPartQuiz {
 
 	public void showNextImage() {
 		panel.removeAll();
+		
 		panel.add(getNextImage());		
 		window.setVisible(true);
 	}
